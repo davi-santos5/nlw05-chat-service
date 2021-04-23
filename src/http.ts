@@ -19,11 +19,15 @@ app.get("/pages/client", (req, res) => {
   return res.render("html/client.html");
 });
 
+app.get("/pages/admin", (req, res) => {
+  return res.render("html/admin.html");
+});
+
 const http = createServer(app);
 const io = new Server(http);
 
 io.on("connection", (socket: Socket) => {
-  // console.log("Connection success", socket.id);
+  console.log("Connection success", socket.id);
 });
 
 app.use(express.json());
